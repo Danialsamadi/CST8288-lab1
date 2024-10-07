@@ -56,4 +56,4 @@ This project is part of an academic assignment, so it is not open for direct con
 
 ## License
 
-MIT License
+[MIT License](LICENSE)
