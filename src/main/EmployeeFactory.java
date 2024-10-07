@@ -1,3 +1,5 @@
+package main;
+
 public class EmployeeFactory {
     public Employee createEmployee(String type) {
         if (type.equalsIgnoreCase("fulltime")) {

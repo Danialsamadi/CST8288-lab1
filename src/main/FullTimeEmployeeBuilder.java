@@ -1,6 +1,7 @@
-public class PartTimeEmployeeBuilder implements EmployeeBuilder {
-    private PartTimeEmployee employee = new PartTimeEmployee();
+package main;
 
+public class FullTimeEmployeeBuilder implements EmployeeBuilder {
+    private FullTimeEmployee employee = new FullTimeEmployee();
 
     @Override
     public EmployeeBuilder setId(int id) {

@@ -1,3 +1,5 @@
+package main;
+
 public interface EmployeeBuilder {
     EmployeeBuilder setId(int id);
     EmployeeBuilder setName(String name);

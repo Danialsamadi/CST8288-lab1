@@ -1,0 +1,102 @@
+@startuml
+abstract class Employee {
+    - id: int
+    - name: String
+    - department: String
+    - role: String
+    - workingHoursPerWeek: int
+    - salary: double
+    + getId(): int
+    + setId(id: int): void
+    + getName(): String
+    + setName(name: String): void
+    + getDepartment(): String
+    + setDepartment(department: String): void
+    + getRole(): String
+    + setRole(role: String): void
+    + getWorkingHoursPerWeek(): int
+    + setWorkingHoursPerWeek(hours: int): void
+    + getSalary(): double
+    + setSalary(salary: double): void
+    + clockIn(): void
+    + clockOut(): void
+    + trackWorkHours(): void
+}
+
+class FullTimeEmployee {
+    + clockIn(): void
+    + clockOut(): void
+    + trackWorkHours(): void
+}
+
+class PartTimeEmployee {
+    + clockIn(): void
+    + clockOut(): void
+    + trackWorkHours(): void
+}
+
+interface EmployeeBuilder {
+    + setId(id: int): EmployeeBuilder
+    + setName(name: String): EmployeeBuilder
+    + setDepartment(department: String): EmployeeBuilder
+    + setRole(role: String): EmployeeBuilder
+    + setWorkingHoursPerWeek(hours: int): EmployeeBuilder
+    + setSalary(salary: double): EmployeeBuilder
+    + build(): Employee
+}
+
+class FullTimeEmployeeBuilder {
+    - employee: FullTimeEmployee
+    + setId(id: int): EmployeeBuilder
+    + setName(name: String): EmployeeBuilder
+    + setDepartment(department: String): EmployeeBuilder
+    + setRole(role: String): EmployeeBuilder
+    + setWorkingHoursPerWeek(hours: int): EmployeeBuilder
+    + setSalary(salary: double): EmployeeBuilder
+    + build(): Employee
+}
+
+class PartTimeEmployeeBuilder {
+    - employee: PartTimeEmployee
+    + setId(id: int): EmployeeBuilder
+    + setName(name: String): EmployeeBuilder
+    + setDepartment(department: String): EmployeeBuilder
+    + setRole(role: String): EmployeeBuilder
+    + setWorkingHoursPerWeek(hours: int): EmployeeBuilder
+    + setSalary(salary: double): EmployeeBuilder
+    + build(): Employee
+}
+
+class EmployeeDirector {
+    + constructEmployee(builder: EmployeeBuilder): Employee
+}
+
+class EmployeeFactory {
+    + createEmployee(type: String): Employee
+}
+
+class EmployeeManager {
+    - instance: EmployeeManager
+    - employees: List<Employee>
+    + getInstance(): EmployeeManager
+    + addEmployee(employee: Employee): void
+    + removeEmployee(employee: Employee): void
+    + getEmployee(id: int): Employee
+    + getAllEmployees(): List<Employee>
+}
+
+class EMS {
+    + main(args: String[]): void
+}
+
+Employee <|-- FullTimeEmployee
+Employee <|-- PartTimeEmployee
+EmployeeBuilder <|.. FullTimeEmployeeBuilder
+EmployeeBuilder <|.. PartTimeEmployeeBuilder
+EmployeeDirector --> EmployeeBuilder
+EmployeeFactory --> Employee
+EmployeeManager --> Employee
+EMS --> EmployeeManager
+EMS --> EmployeeFactory
+EMS --> EmployeeDirector
+@enduml

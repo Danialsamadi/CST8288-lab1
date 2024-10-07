@@ -1,3 +1,5 @@
+package main;
+
 public class FullTimeEmployee extends Employee {
     @Override
     public void clockIn() {

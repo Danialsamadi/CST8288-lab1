@@ -1,3 +1,5 @@
+package main;
+
 public class EMS {
     public static void main(String[] args) {
         EmployeeManager manager = EmployeeManager.getInstance();
@@ -7,20 +9,20 @@ public class EMS {
         // Create employees using Builder
         EmployeeBuilder fullTimeBuilder = new FullTimeEmployeeBuilder()
                 .setId(1)
-                .setName("John Doe")
+                .setName("Jay Parmar")
                 .setDepartment("IT")
-                .setRole("Developer")
+                .setRole("Full Stack Developer")
                 .setWorkingHoursPerWeek(40)
-                .setSalary(5000);
+                .setSalary(7000);
         Employee fullTimeEmployee = director.constructEmployee(fullTimeBuilder);
         manager.addEmployee(fullTimeEmployee);
 
         // Create employees using Factory
         Employee partTimeEmployee = factory.createEmployee("parttime");
         partTimeEmployee.setId(2);
-        partTimeEmployee.setName("Jane Smith");
+        partTimeEmployee.setName("Salim Halwani");
         partTimeEmployee.setDepartment("HR");
-        partTimeEmployee.setRole("Assistant");
+        partTimeEmployee.setRole("Manager");
         partTimeEmployee.setWorkingHoursPerWeek(20);
         partTimeEmployee.setSalary(2500);
         manager.addEmployee(partTimeEmployee);
